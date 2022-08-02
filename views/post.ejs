@@ -13,7 +13,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
             <h1><%= post.title %></h1>
-            <h2 class="subheading"><%= post.title %></h2>
+            <h2 class="subheading"><%= post.detail %></h2>
             <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
               <%= post.dateCreated %></span>
@@ -22,14 +22,40 @@
       </div>
     </div>
   </header>
-
+  <style>
+  .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button1 {background-color: red;} 
+  .button2 {background-color: blue;} 
+  </style>
   <!-- Post Content -->
   <article>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <p><%= post.description %></p>
+          <p><%= post.message %></p>
         </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-5">
+      <!-- Share box -->
+      <div class="tm-bg-gray tm-share-box">
+        <div class="text-center">
+          <a href="/post/edit/<%= post._id %>" class="button button2" ><span>Update Details</span></a>	
+        </div>	
+        <div class="text-center">
+          <a href="/posts/<%= post._id%>?_method=delete" class="button button1" onclick="return confirm('Are you sure?')"><span>Delete Post</span></a>	
+        </div>								
       </div>
     </div>
   </article>

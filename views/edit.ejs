@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Add New Post</h1>
+            <h1>Edit Post</h1>
 
           </div>
         </div>
@@ -23,29 +23,29 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form method="post" action="/add_post">
+        <form method="post" action="/post/<%= post._id %>?_method=put">
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Title</label>
-              <input type="text" class="form-control"  name="title" placeholder="Title" id="name" required data-validation-required-message="Please enter the title">
+              <input type="text" class="form-control" value="<%= post.title %>" name="title" placeholder="Title" id="name" required data-validation-required-message="Please enter the title">
               <p class="help-block text-danger"></p>
             </div>
             <div class="form-group floating-label-form-group controls">
               <label>Post Description</label>
-              <input type="text" class="form-control"  name="detail" placeholder="Description" id="name" required data-validation-required-message="Please enter the description">
+              <input type="text" class="form-control" value="<%= post.detail %>" name="detail" placeholder="Description" id="name" required data-validation-required-message="Please enter the description">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Detail</label>
-              <textarea rows="5" class="form-control" name="message" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+              <textarea rows="5" class="form-control" name="message" placeholder="Message" id="message"><%= post.message %></textarea>
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <br>
           <div id="success"></div>
-          <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Update</button>
         </form>
       </div>
     </div>
